@@ -204,16 +204,17 @@
       background-color: #604D53;
       background-image: repeating-linear-gradient(90deg, rgba(255,219,218,0.06) 0 2px, transparent 2px 14px);
       color: #FFDBDA;
+      display: flex;
+      flex-direction: column;
+      gap: 4mm;
     }
 
     .title-hero {
-      position: absolute;
-      top: 14mm;
-      left: 0;
-      right: 0;
+      position: relative;
+      flex: none;
       text-align: center;
       z-index: 6;
-      height: 56mm;
+      padding-top: 2mm;
     }
 
     .hero-script {
@@ -222,61 +223,85 @@
       color: #FFDBDA;
       line-height: 1;
     }
-    .hero-script .hs-hi { display: block; font-size: 4.6rem; }
-    .hero-script .hs-name { display: block; font-size: 8.4rem; color: #DB7F8E; margin-top: -10px; }
+    .hero-script .hs-hi { display: block; font-size: 3.8rem; }
+    .hero-script .hs-name { display: block; font-size: 6.8rem; color: #DB7F8E; margin-top: -6px; }
 
     .hero-role {
-      margin-top: 8px;
-      font-size: 1.1rem;
-      letter-spacing: 0.16em;
+      margin-top: 6px;
+      font-size: 0.95rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: #D5C5C8;
       font-weight: 700;
     }
 
+    .title-main {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      grid-template-rows: 1fr;
+      align-items: start;
+      gap: 3mm;
+      z-index: 4;
+    }
+
+    .title-side {
+      display: flex;
+      flex-direction: column;
+      gap: 10mm;
+      padding-top: 6mm;
+      min-width: 0;
+    }
+
+    .title-side-right {
+      align-items: flex-end;
+      text-align: right;
+      padding-top: 18mm;
+    }
+
     .cutout-stage {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 66mm;
-      height: 190mm;
-      overflow: visible;
-      z-index: 2;
-      pointer-events: none;
+      position: relative;
+      align-self: end;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
+      align-items: flex-end;
+      height: 100%;
+      max-height: 176mm;
+      pointer-events: none;
+      z-index: 2;
     }
 
     .cutout-photo {
       display: block;
-      width: 72mm;
-      height: 190mm;
-      max-width: none;
-      max-height: none;
+      width: auto;
+      max-width: 62mm;
+      height: auto;
+      max-height: 172mm;
       object-fit: contain;
+      object-position: center top;
       filter: drop-shadow(0 10px 22px rgba(0,0,0,0.4));
     }
 
     .annot {
-      position: absolute;
+      position: relative;
       z-index: 5;
       background: #FFDBDA;
       border-left: 4px solid #DB7F8E;
       border-radius: 8px;
-      padding: 10px 14px;
+      padding: 10px 12px;
       box-shadow: 0 6px 18px rgba(0,0,0,0.3);
       font-family: 'Plus Jakarta Sans', sans-serif;
       color: #FFDBDA;
       line-height: 1.25;
+      max-width: 100%;
     }
-    .annot .ann-big { display: block; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 2rem; color: #604D53; font-weight: 700; }
-    .annot .ann-small { display: block; font-size: 1.1rem; font-weight: 600; color: #604D53; }
-    .pg-title-page .annot.a1 { left: 10mm !important; right: auto !important; top: 112mm !important; width: 50mm; }
-    .pg-title-page .annot.a2 { left: auto !important; right: 10mm !important; top: 132mm !important; width: 50mm; text-align: right; }
-    .pg-title-page .annot.a3 { left: 10mm !important; right: auto !important; top: 174mm !important; width: 50mm; }
-    .pg-title-page .annot .ann-big { font-size: 1.55rem; }
-    .pg-title-page .annot .ann-small { font-size: 0.92rem; }
+    .title-side-right .annot {
+      border-left: none;
+      border-right: 4px solid #DB7F8E;
+    }
+    .annot .ann-big { display: block; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.45rem; color: #604D53; font-weight: 700; }
+    .annot .ann-small { display: block; font-size: 0.82rem; font-weight: 600; color: #604D53; line-height: 1.35; }
 
     .swirls {
       position: absolute;
@@ -288,13 +313,15 @@
     }
 
     .title-quote {
-      position: absolute;
-      left: 14mm; right: 14mm; bottom: 22mm;
+      position: relative;
+      flex: none;
+      margin-top: auto;
+      padding: 0 2mm 10mm;
       text-align: center;
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 1.6rem;
-      line-height: 1.4;
+      font-size: 1.35rem;
+      line-height: 1.35;
       color: #FFDBDA;
       z-index: 3;
     }
@@ -688,21 +715,28 @@
       <div class="hero-role">Барабан Александра Витальевна</div>
     </div>
 
-    <div class="cutout-stage">
-      <img class="cutout-photo" src="assets/photos/cutout_alexandra_crop.png" alt="Александра Барабан" />
-    </div>
+    <div class="title-main">
+      <div class="title-side title-side-left">
+        <div class="annot a1">
+          <span class="ann-big">21 · Студентка</span>
+          <span class="ann-small">3 курс «Электронная экономика», ФЭУ</span>
+        </div>
+        <div class="annot a3">
+          <span class="ann-big">SMM</span>
+          <span class="ann-small">«СтартИнн», «ИнНаСтарт»,<br/>«LibList»</span>
+        </div>
+      </div>
 
-    <div class="annot a1">
-      <span class="ann-big">21 · Студентка</span>
-      <span class="ann-small">3 курс «Электронная экономика», ФЭУ</span>
-    </div>
-    <div class="annot a2">
-      <span class="ann-big">Лидер</span>
-      <span class="ann-small">«Гродненчанка» — 1 место<br/>«Студент года» — III место</span>
-    </div>
-    <div class="annot a3">
-      <span class="ann-big">SMM</span>
-      <span class="ann-small">«СтартИнн», «ИнНаСтарт»,<br/>«LibList»</span>
+      <div class="cutout-stage">
+        <img class="cutout-photo" src="assets/photos/cutout_alexandra_crop.png" alt="Александра Барабан" />
+      </div>
+
+      <div class="title-side title-side-right">
+        <div class="annot a2">
+          <span class="ann-big">Лидер</span>
+          <span class="ann-small">«Гродненчанка» — 1 место<br/>«Студент года» — III место</span>
+        </div>
+      </div>
     </div>
     <svg class="swirls" viewBox="0 0 800 1100" preserveAspectRatio="none" aria-hidden="true">
       <path d="M170 260 C 110 230, 80 300, 130 320 S 190 340, 175 370" fill="none" stroke="#FFDBDA" stroke-width="3" stroke-linecap="round"/>
