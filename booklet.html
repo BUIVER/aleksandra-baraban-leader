@@ -625,10 +625,12 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
-      gap: 20px;
+      gap: 12px;
       text-align: center;
+      padding-top: 14mm;
+      min-height: 0;
     }
 
     .page-contacts h2 {
@@ -640,59 +642,37 @@
 
     .qr-row {
       display: flex;
-      gap: 30px;
+      gap: 18mm;
       align-items: center;
+      justify-content: center;
+      flex: 1;
+      width: 100%;
+      max-width: 175mm;
+      padding: 8mm 0 4mm;
     }
 
     .qr-item {
       text-align: center;
+      flex: 1;
+      max-width: 78mm;
     }
 
     .qr-item img {
-      width: 80px;
-      height: 80px;
+      width: 52mm;
+      height: 52mm;
       border: 2px solid var(--border);
-      border-radius: 8px;
-      padding: 4px;
+      border-radius: 12px;
+      padding: 5px;
       background: #fff;
+      object-fit: contain;
     }
 
     .qr-item .qr-label {
-      font-size: 0.72rem;
+      font-size: 0.82rem;
       font-weight: 700;
       color: var(--navy);
-      margin-top: 6px;
-    }
-
-    .stats-mini {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-top: 16px;
-      width: 100%;
-      max-width: 160mm;
-    }
-
-    .stat-mini {
-      background: rgba(219, 127, 142, 0.08);
-      border-radius: 8px;
-      padding: 10px 8px;
-      text-align: center;
-    }
-
-    .stat-mini .num {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--old-rose);
-    }
-
-    .stat-mini .label {
-      font-size: 0.62rem;
-      color: var(--muted);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      margin-top: 2px;
+      margin-top: 10px;
+      line-height: 1.35;
     }
 
     .footer-note {
@@ -1099,25 +1079,9 @@
           <div class="qr-label">@alexwzzw</div>
         </div>
         <div class="qr-item">
-          <img src="assets/qr_youtube.png" alt="YouTube QR" />
-          <div class="qr-label">Выступление на «Гродненчанке»</div>
+          <img src="assets/qr_portfolio.png" alt="QR на сайт-портфолио" />
+          <div class="qr-label">Сайт-портфолио<br/>на GitHub Pages</div>
         </div>
-      </div>
-
-      <div style="font-size:0.78rem; color:var(--muted); margin-top:8px;">
-        Telegram: <strong>t.me/alexwzzw</strong> &nbsp;|&nbsp; YouTube: <strong>youtu.be/bfQRvv3K-Ck</strong>
-      </div>
-
-      <div class="stats-mini">
-        <div class="stat-mini"><div class="num">13</div><div class="label">Дипломов</div></div>
-        <div class="stat-mini"><div class="num">50+</div><div class="label">Фотографий</div></div>
-        <div class="stat-mini"><div class="num">8</div><div class="label">Видео</div></div>
-        <div class="stat-mini"><div class="num">5</div><div class="label">Граней лидера</div></div>
-      </div>
-
-      <div style="margin-top:24px; padding:14px 20px; background:rgba(219,127,142,0.08); border-radius:10px; max-width:150mm;">
-        <div style="font-size:0.78rem; font-weight:700; color:var(--navy); margin-bottom:6px;">Интерактивный веб-лендинг</div>
-        <div style="font-size:0.7rem; color:var(--muted); line-height:1.45;">Полноразмерные сканы всех 14 дипломов, 50+ фотографий и 8 видеороликов доступны в интерактивном лендинге. Отсканируйте QR-код или перейдите по ссылке в Telegram.</div>
       </div>
     </div>
 
