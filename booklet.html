@@ -71,6 +71,9 @@
         break-after: page;
       }
       .a4-page:last-child { page-break-after: avoid; }
+      .annot::before {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.35), transparent);
+      }
     }
 
     /* Цвета страниц — только из палитры NYNÄ */
@@ -273,17 +276,23 @@
       filter: drop-shadow(0 10px 22px rgba(0,0,0,0.4));
     }
 
+    /* Плотное «стекло» без backdrop-filter — стабильно в PDF/печати */
     .annot {
       position: relative;
       z-index: 5;
-      background: linear-gradient(135deg, rgba(255, 219, 218, 0.26), rgba(96, 77, 83, 0.42));
-      backdrop-filter: blur(16px) saturate(140%);
-      -webkit-backdrop-filter: blur(16px) saturate(140%);
-      border: 1px solid rgba(255, 219, 218, 0.42);
-      border-top-color: rgba(255, 255, 255, 0.58);
+      background: linear-gradient(
+        155deg,
+        #FFEDEC 0%,
+        #FFDBDA 42%,
+        #E8C7CA 100%
+      );
+      border: 1px solid rgba(255, 255, 255, 0.72);
       border-radius: 16px;
       padding: 12px 14px;
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+      box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        inset 0 -1px 0 rgba(96, 77, 83, 0.08);
       overflow: hidden;
       font-family: 'Plus Jakarta Sans', sans-serif;
       line-height: 1.25;
@@ -294,8 +303,8 @@
       content: "";
       position: absolute;
       inset: 0 0 auto 0;
-      height: 48%;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent);
+      height: 46%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.55), transparent);
       pointer-events: none;
     }
 
@@ -311,17 +320,15 @@
       font-style: italic;
       font-size: 1.45rem;
       font-weight: 700;
-      color: #FFDBDA;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+      color: #604D53;
     }
 
     .annot .ann-small {
       display: block;
       font-size: 0.82rem;
       font-weight: 700;
-      color: rgba(255, 219, 218, 0.95);
+      color: #4A3A3F;
       line-height: 1.35;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     }
 
     .title-quote {
