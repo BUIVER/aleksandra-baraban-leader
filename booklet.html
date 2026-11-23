@@ -27,37 +27,11 @@
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       background: #604D53;
       color: var(--ink);
-      padding: 24px 0 48px;
+      padding: 20px 0 40px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 28px;
-    }
-
-    .toolbar {
-      width: min(210mm, 95vw);
-      background: rgba(96, 77, 83, 0.92);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 16px;
-      padding: 14px 22px;
-      color: #f8fafc;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
-    }
-
-    .btn-print {
-      background: linear-gradient(135deg, #D5C5C8, #9DA3A4);
-      color: #604D53;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 999px;
-      font-weight: 800;
-      font-size: 0.88rem;
-      cursor: pointer;
+      gap: 20px;
     }
 
     /* A4 Page */
@@ -75,9 +49,19 @@
       flex-direction: column;
     }
 
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
     @media print {
-      body { background: #fff; padding: 0; gap: 0; }
-      .toolbar { display: none; }
+      body {
+        background: #fff;
+        padding: 0;
+        gap: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
       .a4-page {
         box-shadow: none;
         margin: 0;
@@ -698,15 +682,6 @@
   </style>
 </head>
 <body>
-
-  <!-- TOOLBAR (screen only) -->
-  <div class="toolbar">
-    <div style="font-weight:700; font-size:0.9rem;">📄 Портфолио «Лидер года» — Барабан А.В.</div>
-    <div class="toolbar-actions">
-      <button class="btn-print" onclick="window.print()">🖨️ Печать / Сохранить PDF</button>
-    </div>
-    <div style="font-size:0.75rem; color:#9DA3A4;">10 страниц • Масштаб 100% • Формат А4</div>
-  </div>
 
   <!-- ==================== PAGE 1: TITLE (стиль референса) ==================== -->
   <div class="a4-page pg-title-page">

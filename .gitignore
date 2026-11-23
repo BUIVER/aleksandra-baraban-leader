@@ -31,6 +31,9 @@ ENV/
 env.bak/
 venv.bak/
 
+# Node (PDF build script)
+node_modules/
+
 # IDE
 .idea/
 .vscode/
