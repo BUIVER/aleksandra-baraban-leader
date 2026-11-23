@@ -22,7 +22,7 @@ aleksandra-baraban-leader/
 └── assets/
     ├── diplomas/               # 14 сканов дипломов и сертификатов (JPEG)
     ├── photos/                 # 50+ фотографий с мероприятий
-    ├── videos/                 # 8 видеофайлов выступлений и волонтёрства
+    ├── videos/                 # 11 видеофайлов выступлений, культуры и волонтёрства
     ├── qr_telegram.png         # QR-код на Telegram @alexwzzw
     └── qr_youtube.png          # QR-код на YouTube-выступление
 ```
