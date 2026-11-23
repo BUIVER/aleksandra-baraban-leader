@@ -272,26 +272,57 @@
     }
 
     .profile-tag {
-      background: rgba(96, 77, 83, 0.65);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 12px 16px;
+      position: relative;
+      background: linear-gradient(135deg, rgba(255, 219, 218, 0.22), rgba(96, 77, 83, 0.35));
+      backdrop-filter: blur(16px) saturate(140%);
+      -webkit-backdrop-filter: blur(16px) saturate(140%);
+      border: 1px solid rgba(255, 219, 218, 0.38);
+      border-top-color: rgba(255, 255, 255, 0.6);
+      border-radius: 18px;
+      padding: 14px 18px;
       display: flex;
       align-items: flex-start;
-      gap: 12px;
+      gap: 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      overflow: hidden;
+    }
+
+    .profile-tag::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 45%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), transparent);
+      pointer-events: none;
     }
 
     .profile-tag-icon {
-      font-size: 1.35rem;
-      line-height: 1;
-      margin-top: 2px;
+      flex: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    }
+
+    .profile-tag-icon img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+      display: block;
     }
 
     .profile-tag-label {
-      font-size: 0.73rem;
+      font-size: 0.78rem;
+      font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--text-muted);
+      color: #2A1F24;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
     }
 
     .profile-tag-val {
@@ -1122,7 +1153,7 @@
     </a>
     <nav class="nav-links">
       <a href="#dimensions">5 граней лидера</a>
-      <a href="#diplomas">Дипломы (14)</a>
+      <a href="#diplomas">Дипломы</a>
       <a href="#startups">Стартапы & SMM</a>
       <a href="#culture">Скрипка & Поэзия</a>
       <a href="#media">Видео & Жизнь</a>
@@ -1154,28 +1185,28 @@
 
         <div class="profile-tags">
           <div class="profile-tag">
-            <span class="profile-tag-icon">🏛️</span>
+            <span class="profile-tag-icon"><img src="assets/flowers/flower_1_hibiscus_mauve.png" alt="" /></span>
             <div>
               <div class="profile-tag-label">Республиканское признание</div>
               <div class="profile-tag-val">Совет Республики НС РБ &amp; I место «АРТ-вакацыі» Минобразования</div>
             </div>
           </div>
           <div class="profile-tag">
-            <span class="profile-tag-icon">🚀</span>
+            <span class="profile-tag-icon"><img src="assets/flowers/flower_2_hibiscus_pink.png" alt="" /></span>
             <div>
               <div class="profile-tag-label">Карьера &amp; IT-стартапы</div>
               <div class="profile-tag-val">Сектор инновационных проектов и стартапов ГрГУ • Автор «LibList»</div>
             </div>
           </div>
           <div class="profile-tag">
-            <span class="profile-tag-icon">👑</span>
+            <span class="profile-tag-icon"><img src="assets/flowers/flower_3_rose_crimson.png" alt="" /></span>
             <div>
               <div class="profile-tag-label">Лидерство &amp; Ораторство</div>
               <div class="profile-tag-val">Первая Вице-Мисс «Гродненчанка» • Бронза «Студент года» • «Цицероний»</div>
             </div>
           </div>
           <div class="profile-tag">
-            <span class="profile-tag-icon">🎻</span>
+            <span class="profile-tag-icon"><img src="assets/flowers/flower_4_lily.png" alt="" /></span>
             <div>
               <div class="profile-tag-label">Искусство &amp; Эрудиция</div>
               <div class="profile-tag-val">Ансамбль скрипачей «Виола» • Победа в дебатах и квиз-турнирах</div>
@@ -1184,7 +1215,7 @@
         </div>
 
         <div class="hero-actions">
-          <a href="#diplomas" class="btn-primary">Смотреть все 14 наград и дипломов</a>
+          <a href="#diplomas" class="btn-primary">Смотреть все награды и дипломы</a>
         </div>
       </div>
 
@@ -1262,7 +1293,7 @@
     <!-- 5 DIMENSIONS OF LEADERSHIP + RADAR -->
     <section id="dimensions" class="section">
       <div class="section-header">
-        <span class="section-eyebrow">🌸 Матрица компетенций</span>
+        
         <h2 class="section-title">5 граней лидерства Александры Барабан</h2>
         <p class="section-sub">Нажмите на любую грань, чтобы отфильтровать соответствующие достижения и дипломы ниже.</p>
       </div>
@@ -1372,16 +1403,16 @@
       </div>
     </section>
 
-    <!-- VERIFIED DIPLOMAS GALLERY (14 AWARDS) -->
+    <!-- VERIFIED DIPLOMAS GALLERY -->
     <section id="diplomas" class="section">
       <div class="section-header">
-        <span class="section-eyebrow">📜 Верифицированный архив достижений</span>
-        <h2 class="section-title">Все 14 дипломов и наград Александры Барабан</h2>
+        
+        <h2 class="section-title">Все дипломы и награды Александры Барабан</h2>
         <p class="section-sub">Каждая карточка содержит подлинный скан документа из конкурсного портфолио. Нажмите на изображение диплома для полноэкранного просмотра.</p>
       </div>
 
       <div class="filter-tabs">
-        <button class="filter-btn active" onclick="filterDiplomas('all')">Все награды (14)</button>
+        <button class="filter-btn active" onclick="filterDiplomas('all')">Все награды</button>
         <button class="filter-btn" onclick="filterDiplomas('leadership')">👑 Лидерство и признание (2)</button>
         <button class="filter-btn" onclick="filterDiplomas('intellect')">🧠 Интеллект и квизы (4)</button>
         <button class="filter-btn" onclick="filterDiplomas('oratory')">🎙️ Ораторство и дебаты (3)</button>
@@ -1450,7 +1481,7 @@
             <h3 class="diploma-title">Конкурс «Студент года – 2025» («Время действовать»)</h3>
             <span class="diploma-award">Победа в номинации «Выдающийся интеллект»</span>
             <p class="diploma-desc">Признание интеллектуального лидерства, эрудиции и аналитического мышления представительницы Факультета экономики и управления.</p>
-            <div class="diploma-org">Организатор: УО «ГрГУ имени Янки Купалы» (Ректор И. Ф. Китурко)</div>
+            <div class="diploma-org">Организатор: Гродненский государственный университет имени Янки Купалы</div>
           </div>
         </article>
 
@@ -1466,7 +1497,7 @@
             <h3 class="diploma-title">Университетский конкурс «Студент года – 2025»</h3>
             <span class="diploma-award">Диплом за III место</span>
             <p class="diploma-desc">Бронзовый призер главного студенческого конкурса Купаловского университета среди лучших лидеров всех факультетов.</p>
-            <div class="diploma-org">Организатор: УО «ГрГУ имени Янки Купалы» (Ректор И. Ф. Китурко)</div>
+            <div class="diploma-org">Организатор: Гродненский государственный университет имени Янки Купалы</div>
           </div>
         </article>
 
@@ -1482,7 +1513,7 @@
             <h3 class="diploma-title">XVI Открытый конкурс бизнес-идей инновационных стартапов «ИнНаСтарт»</h3>
             <span class="diploma-award">Диплом III степени • Номинация «IT-решение»</span>
             <p class="diploma-desc">За разработку и защиту проекта <strong>«LibList» — книжная социальная сеть</strong> (соединение компетенций «Электронной экономики» и продуктового IT-дизайна).</p>
-            <div class="diploma-org">Организатор: УО «ГрГУ имени Янки Купалы» (Проректор по научной работе Н. З. Башун)</div>
+            <div class="diploma-org">Организатор: Гродненский государственный университет имени Янки Купалы</div>
           </div>
         </article>
 
@@ -1514,7 +1545,7 @@
             <h3 class="diploma-title">Конкурс ораторского мастерства «Цицероний – 2025»</h3>
             <span class="diploma-award">Диплом II степени</span>
             <p class="diploma-desc">Высокая оценка риторики, аргументации, культуры публичной речи и работы с аудиторией.</p>
-            <div class="diploma-org">Организатор: УО «ГрГУ имени Янки Купалы» (Проректор В. В. Сенько)</div>
+            <div class="diploma-org">Организатор: Гродненский государственный университет имени Янки Купалы</div>
           </div>
         </article>
 
@@ -1530,14 +1561,14 @@
             <h3 class="diploma-title">Конкурс ораторского мастерства «Цицероний – 2025»</h3>
             <span class="diploma-award">Номинация «За оригинальность подачи материала»</span>
             <p class="diploma-desc">Отмечена нестандартная, креативная и запоминающаяся авторская манера публичного выступления.</p>
-            <div class="diploma-org">Организатор: УО «ГрГУ имени Янки Купалы»</div>
+            <div class="diploma-org">Организатор: Гродненский государственный университет имени Янки Купалы</div>
           </div>
         </article>
 
         <!-- 10. Финал Дебатного турнира ГрГУ — II степень -->
         <article class="diploma-card" data-cat="oratory intellect">
-          <div class="diploma-thumb-wrap" onclick="openLightbox('assets/photos/debates_2nd_place_award.jpg', 'Диплом II степени финала Дебатного турнира ГрГУ имени Янки Купалы')">
-            <img src="assets/photos/debates_2nd_place_award.jpg" alt="Диплом II степени финала Дебатного турнира ГрГУ" />
+          <div class="diploma-thumb-wrap" onclick="openLightbox('assets/diplomas/diploma_debates_2nd_clean.jpg', 'Диплом II степени финала Дебатного турнира ГрГУ имени Янки Купалы')">
+            <img src="assets/diplomas/diploma_debates_2nd_clean.jpg" alt="Диплом II степени финала Дебатного турнира ГрГУ" />
             <span class="diploma-level-badge level-uni">Парламентские дебаты</span>
             <span class="diploma-zoom-hint">🔍 Открыть фото с дипломом</span>
           </div>
@@ -1546,7 +1577,7 @@
             <h3 class="diploma-title">Финал Дебатного турнира ГрГУ имени Янки Купалы</h3>
             <span class="diploma-award">Диплом II степени</span>
             <p class="diploma-desc">Серебряный призер университетской лиги дебатов: аналитика, контраргументация и защита позиции в дискуссии.</p>
-            <div class="diploma-org">Организатор: УО «ГрГУ имени Янки Купалы»</div>
+            <div class="diploma-org">Организатор: Гродненский государственный университет имени Янки Купалы</div>
           </div>
         </article>
 
@@ -1578,7 +1609,7 @@
             <h3 class="diploma-title">Интеллектуальная игра «Законы семьи» («Неделя семьи»)</h3>
             <span class="diploma-award">Диплом за I место</span>
             <p class="diploma-desc">Абсолютная победа команды (Александра Барабан, Михаил Гурин, Анна Белявская) в университетском интеллектуальном турнире.</p>
-            <div class="diploma-org">Организатор: УО «ГрГУ имени Янки Купалы» (Проректор В. В. Сенько)</div>
+            <div class="diploma-org">Организатор: Гродненский государственный университет имени Янки Купалы</div>
           </div>
         </article>
 
@@ -1610,7 +1641,7 @@
             <h3 class="diploma-title">«Беларусь – перекресток национальных культур» &amp; Викторина «История земли моей»</h3>
             <span class="diploma-award">Сертификат 7 форматов + I место команды «4G» ФЭУ</span>
             <p class="diploma-desc">Участие в круглом столе, «Брейн-ринге», конкурсе чтецов, видеороликов и эссе + победа команды «4G» ФЭУ в исторической викторине ко Дню народного единства.</p>
-            <div class="diploma-org">Организатор: УО «ГрГУ имени Янки Купалы» (Проректор Л. Ю. Павлов)</div>
+            <div class="diploma-org">Организатор: Гродненский государственный университет имени Янки Купалы</div>
           </div>
         </article>
       </div>
@@ -1620,7 +1651,7 @@
     <section id="culture" class="section">
       <div class="poetry-spotlight">
         <div>
-          <span class="section-eyebrow">🇧🇾 Голос культурного кода Беларуси</span>
+          
           <h2 class="section-title" style="margin-top:4px;">«Вдохновение для души» и поэзия Аркадия Кулешова</h2>
           <p style="color:#9DA3A4; font-size:0.96rem; margin-bottom:14px;">
             В рамках республиканского творческого конкурса <strong>«Вдохновение для души»</strong>, приуроченного к Году белорусской женщины, Александра Барабан была удостоена диплома за обращение к пронзительному произведению народного поэта Беларуси <strong>Аркадия Кулешова «Ліст з палону» («Дарагі! Не хаваю тугі…», 1942)</strong>. Награда вручена лично Председателем Совета Республики Национального собрания Республики Беларусь <strong>Натальей Ивановной Кочановой</strong>.
@@ -1657,7 +1688,7 @@
     <!-- IT STARTUPS, SCIENCE & CAREER BENTO GRID -->
     <section id="startups" class="section">
       <div class="section-header">
-        <span class="section-eyebrow">🚀 Профессиональный трек: Электронная экономика &amp; Стартап-экосистема</span>
+        
         <h2 class="section-title">От учебной аудитории — к работе в секторе инновационных проектов и стартапов ГрГУ</h2>
         <p class="section-sub">Александра не просто учится на 3 курсе специальности «Электронная экономика» со средним баллом выше 8.0, но уже работает в структуре университета, развивая медиа и коммуникации молодежного предпринимательства.</p>
       </div>
@@ -1745,7 +1776,7 @@
     <!-- VIDEO HUB -->
     <section id="media" class="section">
       <div class="section-header">
-        <span class="section-eyebrow">🎬 Живая энергия сцены</span>
+        
         <h2 class="section-title">Видеохроника выступлений и побед</h2>
         <p class="section-sub">Реальные кадры со сцены «Студента года», ораторского конкурса «Цицероний» и городского конкурса «Гродненчанка».</p>
       </div>
@@ -1829,7 +1860,7 @@
     <!-- FULL PHOTO ARCHIVE -->
     <section class="section">
       <div class="section-header">
-        <span class="section-eyebrow">📸 Фотолетопись лидера</span>
+        
         <h2 class="section-title">Яркие моменты: от трибуны Совета Республики до студенческого катка и квизов</h2>
         <p class="section-sub">Нажмите на любую фотографию, чтобы рассмотреть её в полном размере.</p>
       </div>
@@ -2009,8 +2040,60 @@
       });
     }
 
-    function drawParticles() {
+    // Объёмные шары в палитре NYNÄ (как в буклете)
+    const BALL_PALETTE = [
+      { c1: 'rgba(255,219,218,0.95)', c2: 'rgba(219,127,142,0.85)', c3: 'rgba(96,77,83,0.55)' },
+      { c1: 'rgba(255,219,218,0.9)',  c2: 'rgba(213,197,200,0.8)',  c3: 'rgba(157,163,164,0.5)' },
+      { c1: 'rgba(213,197,200,0.85)', c2: 'rgba(157,163,164,0.7)',  c3: 'rgba(96,77,83,0.5)' }
+    ];
+    let balls = [];
+
+    function makeBalls() {
+      balls = [];
+      const count = Math.max(4, Math.round((w * h) / 260000));
+      for (let i = 0; i < count; i++) {
+        balls.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: 90 + Math.random() * 180,
+          vx: (Math.random() - 0.5) * 0.25,
+          vy: (Math.random() - 0.5) * 0.25,
+          pal: BALL_PALETTE[i % BALL_PALETTE.length],
+          phase: Math.random() * Math.PI * 2
+        });
+      }
+    }
+    makeBalls();
+    window.addEventListener('resize', makeBalls);
+
+    function drawBall(b, t) {
+      const pulse = 1 + Math.sin(t * 0.0008 + b.phase) * 0.04;
+      const r = b.r * pulse;
+      const g = ctx.createRadialGradient(b.x - r * 0.35, b.y - r * 0.35, r * 0.1, b.x, b.y, r);
+      g.addColorStop(0, b.pal.c1);
+      g.addColorStop(0.5, b.pal.c2);
+      g.addColorStop(1, b.pal.c3);
+      ctx.save();
+      ctx.filter = 'blur(10px)';
+      ctx.globalAlpha = 0.6;
+      ctx.beginPath();
+      ctx.arc(b.x, b.y, r, 0, Math.PI * 2);
+      ctx.fillStyle = g;
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function drawParticles(t = 0) {
       ctx.clearRect(0, 0, w, h);
+      for (const b of balls) {
+        b.x += b.vx;
+        b.y += b.vy;
+        if (b.x < -b.r) b.x = w + b.r;
+        if (b.x > w + b.r) b.x = -b.r;
+        if (b.y < -b.r) b.y = h + b.r;
+        if (b.y > h + b.r) b.y = -b.r;
+        drawBall(b, t);
+      }
       for (const p of particles) {
         p.x += p.vx;
         p.y += p.vy;
@@ -2026,7 +2109,7 @@
       }
       requestAnimationFrame(drawParticles);
     }
-    drawParticles();
+    requestAnimationFrame(drawParticles);
 
     // Scroll reveal animation (IntersectionObserver)
     const observer = new IntersectionObserver((entries) => {

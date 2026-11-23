@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Буклет жюри «Лидер года» — Барабан Александра Витальевна</title>
+  <title>Портфолио «Лидер года» — Барабан Александра Витальевна</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -21,11 +21,7 @@
       --border: #D5C5C8;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -40,7 +36,7 @@
 
     .toolbar {
       width: min(210mm, 95vw);
-      background: rgba(15, 23, 42, 0.92);
+      background: rgba(96, 77, 83, 0.92);
       border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: 16px;
       padding: 14px 22px;
@@ -53,11 +49,6 @@
       box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
     }
 
-    .toolbar-actions {
-      display: flex;
-      gap: 10px;
-    }
-
     .btn-print {
       background: linear-gradient(135deg, #D5C5C8, #9DA3A4);
       color: #604D53;
@@ -67,819 +58,1019 @@
       font-weight: 800;
       font-size: 0.88rem;
       cursor: pointer;
-      text-decoration: none;
     }
 
-    .btn-back {
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 10px 18px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 0.86rem;
-      text-decoration: none;
-    }
-
-    /* A4 Page container */
+    /* A4 Page */
     .a4-page {
       width: 210mm;
       height: 297mm;
-      background: #ffffff;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
-      position: relative;
+      background: var(--page-bg, #FFF5F5);
+      padding: 12mm 14mm;
       overflow: hidden;
+      position: relative;
+      isolation: isolate;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+      page-break-after: always;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      padding: 11mm 13mm;
-    }
-
-    .top-accent-bar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 5mm;
-      background: linear-gradient(90deg, #604D53 0%, #DB7F8E 45%, #FFDBDA 75%, #D5C5C8 100%);
-    }
-
-    /* PAGE 1 HEADER */
-    .doc-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1.5px solid var(--border);
-      padding-bottom: 3.5mm;
-      margin-top: 2mm;
-    }
-
-    .uni-name {
-      font-size: 7.8pt;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      color: var(--royal);
-    }
-
-    .contest-badge {
-      background: linear-gradient(135deg, #DB7F8E, #FFDBDA);
-      color: #ffffff;
-      font-size: 7.8pt;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 4px 12px;
-      border-radius: 999px;
-    }
-
-    /* HERO PROFILE BLOCK */
-    .hero-dossier {
-      display: grid;
-      grid-template-columns: 62mm 1fr;
-      gap: 6mm;
-      align-items: stretch;
-      margin-top: 3mm;
-    }
-
-    .portrait-frame {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 2px solid var(--gold-border);
-      height: 76mm;
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.14);
-    }
-
-    .portrait-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 15%;
-    }
-
-    .portrait-caption {
-      position: absolute;
-      inset: auto 0 0 0;
-      background: linear-gradient(to top, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.65), transparent);
-      color: #fff;
-      padding: 10px 10px 7px;
-      font-size: 7.2pt;
-      font-weight: 600;
-      line-height: 1.25;
-    }
-
-    .dossier-info {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .candidate-name {
-      font-size: 21pt;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: var(--navy);
-      line-height: 1.05;
-    }
-
-    .candidate-tagline {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-style: italic;
-      font-weight: 700;
-      font-size: 13pt;
-      color: var(--gold);
-      margin: 2px 0 6px;
-    }
-
-    .bio-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5mm;
-    }
-
-    .bio-item {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--cornflower);
-      border-radius: 7px;
-      padding: 5px 8px;
-    }
-
-    .bio-item.gold-left {
-      border-left-color: var(--gold-border);
-      background: #fffbeb;
-    }
-
-    .bio-label {
-      font-size: 6.5pt;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--muted);
-    }
-
-    .bio-val {
-      font-size: 8.2pt;
-      font-weight: 700;
-      color: var(--navy);
-      line-height: 1.25;
-    }
-
-    .credo-box {
-      background: linear-gradient(135deg, #604D53, #DB7F8E);
-      color: #ffffff;
-      border-radius: 10px;
-      padding: 8px 12px;
-      font-size: 8.2pt;
-      line-height: 1.38;
-    }
-
-    .credo-box strong {
-      color: #DB7F8E;
-    }
-
-    /* 4 PILLARS MATRIX ON PAGE 1 */
-    .section-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #f1f5f9;
-      border-left: 4px solid var(--royal);
-      padding: 4px 10px;
-      border-radius: 0 6px 6px 0;
-      margin-top: 3mm;
-    }
-
-    .section-bar-title {
-      font-size: 9.5pt;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--navy);
-    }
-
-    .section-bar-sub {
-      font-size: 7.5pt;
-      font-weight: 700;
-      color: var(--cornflower);
-    }
-
-    .pillars-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3.5mm;
-      margin-top: 2.5mm;
-    }
-
-    .pillar-card {
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 8px 10px;
-      background: #ffffff;
-    }
-
-    .pillar-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 4px;
-      padding-bottom: 3px;
-      border-bottom: 1px dashed var(--border);
-    }
-
-    .pillar-title {
-      font-size: 8.8pt;
-      font-weight: 800;
-      color: var(--royal);
-    }
-
-    .pillar-badge {
-      font-size: 6.5pt;
-      font-weight: 800;
-      padding: 2px 7px;
-      border-radius: 999px;
-      background: #dbeafe;
-      color: #1e40af;
-      text-transform: uppercase;
-    }
-
-    .pillar-list {
-      list-style: none;
-      font-size: 7.8pt;
-      line-height: 1.34;
-      color: #1e293b;
-    }
-
-    .pillar-list li {
-      margin-bottom: 3px;
-      padding-left: 10px;
-      position: relative;
-    }
-
-    .pillar-list li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: var(--gold);
-      font-weight: 900;
-    }
-
-    /* POETRY & PHOTO STRIP PAGE 1 */
-    .culture-highlight {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 4mm;
-      background: #fffbeb;
-      border: 1px solid #DB7F8E;
-      border-radius: 10px;
-      padding: 8px 11px;
-      align-items: center;
-      margin-top: 2.5mm;
-    }
-
-    .poem-quote {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-style: italic;
-      font-size: 10pt;
-      line-height: 1.32;
-      color: #78350f;
-      margin-top: 3px;
-    }
-
-    .photo-row-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 3mm;
-      margin-top: 2.5mm;
-    }
-
-    .mini-photo-card {
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      height: 33mm;
-      position: relative;
-    }
-
-    .mini-photo-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .mini-photo-card span {
-      position: absolute;
-      inset: auto 0 0 0;
-      background: rgba(15, 23, 42, 0.84);
-      color: #fff;
-      font-size: 6.3pt;
-      font-weight: 700;
-      padding: 2px 5px;
-      text-align: center;
-    }
-
-    /* TABLE ON PAGE 2 */
-    .awards-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 7.4pt;
-      margin-top: 2mm;
-    }
-
-    .awards-table th {
-      background: var(--navy);
-      color: #ffffff;
-      text-align: left;
-      padding: 5px 7px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      font-size: 6.8pt;
-    }
-
-    .awards-table td {
-      padding: 4.5px 7px;
-      border-bottom: 1px solid var(--border);
-      vertical-align: top;
-      line-height: 1.25;
-    }
-
-    .awards-table tr:nth-child(even) td {
-      background: #f8fafc;
-    }
-
-    .lvl-tag {
-      display: inline-block;
-      padding: 1.5px 6px;
-      border-radius: 4px;
-      font-weight: 800;
-      font-size: 6.3pt;
-      text-transform: uppercase;
-    }
-    .lvl-rep { background: #fef3c7; color: #92400e; border: 1px solid #f59e0b; }
-    .lvl-int { background: #ede9fe; color: #5b21b6; border: 1px solid #8b5cf6; }
-    .lvl-cit { background: #d1fae5; color: #065f46; border: 1px solid #10b981; }
-    .lvl-uni { background: #dbeafe; color: #1e40af; border: 1px solid #3b82f6; }
-
-    /* DIPLOMA COLLAGE STRIP ON PAGE 2 */
-    .diploma-mini-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 2.5mm;
-      margin-top: 2.5mm;
-    }
-
-    .diploma-mini {
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      overflow: hidden;
-      height: 36mm;
-      background: #f1f5f9;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .diploma-mini img {
-      width: 100%;
-      height: 29mm;
-      object-fit: cover;
-      object-position: center top;
-    }
-
-    .diploma-mini div {
-      font-size: 5.8pt;
-      font-weight: 700;
-      text-align: center;
-      padding: 2px 3px;
-      color: var(--navy);
-      line-height: 1.1;
-    }
-
-    /* QR & FOOTER BLOCK PAGE 2 */
-    .qr-bridge {
-      display: grid;
-      grid-template-columns: 1fr auto auto;
-      gap: 5mm;
-      align-items: center;
-      background: linear-gradient(135deg, #604D53, #DB7F8E);
-      color: #ffffff;
-      border-radius: 12px;
-      padding: 9px 14px;
-      margin-top: 2.5mm;
-    }
-
-    .qr-card {
-      background: #ffffff;
-      color: var(--navy);
-      padding: 5px 7px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
-
-    .qr-card img {
-      width: 18mm;
-      height: 18mm;
-      display: block;
-    }
-
-    .qr-card-text {
-      font-size: 6.5pt;
-      line-height: 1.25;
-      max-width: 28mm;
-    }
-
-    .page-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 7pt;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      padding-top: 2mm;
     }
 
     @media print {
-      @page {
-        size: A4 portrait;
-        margin: 0;
-      }
-      body {
-        background: #ffffff;
-        padding: 0;
-        gap: 0;
-      }
-      .toolbar {
-        display: none !important;
-      }
+      body { background: #fff; padding: 0; gap: 0; }
+      .toolbar { display: none; }
       .a4-page {
         box-shadow: none;
+        margin: 0;
+        width: 210mm;
+        height: 297mm;
         page-break-after: always;
         break-after: page;
       }
-      .a4-page:last-child {
-        page-break-after: auto;
-        break-after: auto;
-      }
+      .a4-page:last-child { page-break-after: avoid; }
+    }
+
+    /* Цвета страниц — только из палитры NYNÄ */
+    .pg-1 { --page-bg: #FFDBDA; }   /* Soft Blush */
+    .pg-2 { --page-bg: #D5C5C8; background-color: #D5C5C8; }   /* Pale Slate */
+    .pg-3 { --page-bg: #D5C5C8; }   /* Pale Slate */
+    .pg-4 { --page-bg: #9DA3A4; }   /* Cool Steel */
+    .pg-5 { --page-bg: #604D53; color: #FFDBDA; }   /* Taupe Grey */
+    .pg-6 { --page-bg: #FFDBDA; }   /* Soft Blush */
+
+    /* Контраст текста на тёмной странице */
+    .pg-5 .page-header h2,
+    .pg-5 .page-header .facet-num,
+    .pg-5 .diploma-item,
+    .pg-5 .d-name { color: #FFDBDA; }
+    .pg-5 .diploma-item { background: rgba(96,77,83,0.6); border-color: #9DA3A4; }
+    .pg-5 .diploma-item .info { background: #604D53; }
+    .pg-5 .text-filler { background: rgba(219,127,142,0.25); }
+    .pg-5 .text-filler .tf-title,
+    .pg-5 .text-filler p { color: #FFDBDA; }
+    .pg-5 .page-number { color: #FFDBDA; }
+
+    /* ===== Фото-страницы (фотохроника) ===== */
+    .photo-page-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 0;
+    }
+
+    .photo-page-head .facet-num {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #DB7F8E;
+    }
+
+    .photo-page-head h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #604D53;
+      line-height: 1.1;
+    }
+
+    /* Сетка из нескольких фото на одной странице */
+    .photo-grid {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .ph-tile {
+      margin: 0;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      background: #ffffff;
+      border: 3px solid #FFFFFF;
+      border-radius: 12px;
+      box-shadow: 0 8px 22px rgba(96, 77, 83, 0.28);
+      overflow: hidden;
+    }
+
+    .ph-tile img {
+      flex: 1;
+      min-height: 0;
+      width: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .ph-tile figcaption {
+      flex: none;
+      padding: 6px 10px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: #604D53;
+      background: #ffffff;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    /* На тёмной странице фото-страницы: подпись светлая */
+    .pg-5 .photo-page-head h2,
+    .pg-5 .ph-tile figcaption { color: #604D53; }
+    .pg-5 .photo-page-head .facet-num { color: #FFDBDA; }
+    .pg-5 .photo-page-head .facet-num { color: #FFDBDA; }
+
+    /* Розовая страница: текст тёмный для контраста */
+    .pg-2 .page-header h2, .pg-2 .facet-num { color: #604D53; }
+    .pg-2 .text-filler { background: rgba(255,219,218,0.7); }
+    .pg-2 .page-header { background: linear-gradient(90deg, rgba(219,127,142,0.25), transparent); }
+
+    /* Векторный декор на фоне страницы */
+    .bg-art {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.55;
+    }
+
+    .a4-page > *:not(.bg-art) { position: relative; z-index: 1; }
+
+    /* ===== PAGE 1: стиль референса, палитра NYNÄ ===== */
+    .pg-title-page {
+      --page-bg: #604D53;
+      background-color: #604D53;
+      background-image: repeating-linear-gradient(90deg, rgba(255,219,218,0.06) 0 2px, transparent 2px 14px);
+      color: #FFDBDA;
+    }
+
+    .title-hero {
+      position: absolute;
+      top: 14mm;
+      left: 0;
+      right: 0;
+      text-align: center;
+      z-index: 6;
+      height: 56mm;
+    }
+
+    .hero-script {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: #FFDBDA;
+      line-height: 1;
+    }
+    .hero-script .hs-hi { display: block; font-size: 4.6rem; }
+    .hero-script .hs-name { display: block; font-size: 8.4rem; color: #DB7F8E; margin-top: -10px; }
+
+    .hero-role {
+      margin-top: 8px;
+      font-size: 1.1rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #D5C5C8;
+      font-weight: 700;
+    }
+
+    .cutout-stage {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 66mm;
+      height: 190mm;
+      overflow: visible;
+      z-index: 2;
+      pointer-events: none;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .cutout-photo {
+      display: block;
+      width: 72mm;
+      height: 190mm;
+      max-width: none;
+      max-height: none;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 22px rgba(0,0,0,0.4));
+    }
+
+    .annot {
+      position: absolute;
+      z-index: 5;
+      background: #FFDBDA;
+      border-left: 4px solid #DB7F8E;
+      border-radius: 8px;
+      padding: 10px 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #FFDBDA;
+      line-height: 1.25;
+    }
+    .annot .ann-big { display: block; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 2rem; color: #604D53; font-weight: 700; }
+    .annot .ann-small { display: block; font-size: 1.1rem; font-weight: 600; color: #604D53; }
+    .pg-title-page .annot.a1 { left: 10mm !important; right: auto !important; top: 112mm !important; width: 50mm; }
+    .pg-title-page .annot.a2 { left: auto !important; right: 10mm !important; top: 132mm !important; width: 50mm; text-align: right; }
+    .pg-title-page .annot.a3 { left: 10mm !important; right: auto !important; top: 174mm !important; width: 50mm; }
+    .pg-title-page .annot .ann-big { font-size: 1.55rem; }
+    .pg-title-page .annot .ann-small { font-size: 0.92rem; }
+
+    .swirls {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .title-quote {
+      position: absolute;
+      left: 14mm; right: 14mm; bottom: 22mm;
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.6rem;
+      line-height: 1.4;
+      color: #FFDBDA;
+      z-index: 3;
+    }
+
+    /* PAGE 1: TITLE (старые правила, не используются) */
+    .page-title {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 16px;
+    }
+
+    .page-title .photo-frame {
+      width: 340px;
+      height: 340px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: drop-shadow(0 6px 16px rgba(96, 77, 83, 0.25));
+    }
+
+    /* Звезда-подложка */
+    .page-title .photo-frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--old-rose);
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+
+    /* Фото в центральном круге звезды */
+    .page-title .photo-frame img {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: 50% 30%;
+      border: 3px solid #FFDBDA;
+    }
+
+    .page-title .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .page-title h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .page-title .subtitle {
+      font-size: 0.85rem;
+      color: #604D53;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .page-title .bio-block {
+      margin-top: 24px;
+      padding: 20px 24px;
+      background: linear-gradient(135deg, rgba(255,219,218,0.55), rgba(213,197,200,0.35));
+      border-left: 5px solid var(--old-rose);
+      border-radius: 12px;
+      text-align: left;
+      max-width: 168mm;
+    }
+
+    .page-title .bio-block p {
+      font-size: 1.02rem;
+      line-height: 1.55;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .page-title .bio-block p:last-child { margin-bottom: 0; }
+
+    .page-title .quote {
+      margin-top: 32px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.45rem;
+      color: #604D53;
+      font-weight: 600;
+      max-width: 150mm;
+      line-height: 1.5;
+    }
+
+    /* DIPLOMA GRID PAGES */
+    .page-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--old-rose);
+    }
+
+    .page-header .emoji { font-size: 1.5rem; }
+
+    .page-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.15;
+    }
+
+    .page-header::after {
+      content: "";
+      position: absolute;
+    }
+
+    .page-header {
+      background: linear-gradient(90deg, rgba(219,127,142,0.18), transparent);
+      border-radius: 10px 10px 0 0;
+      padding: 8px 12px;
+      margin-bottom: 10px;
+      flex: none;
+    }
+
+    .section-block { display: flex; flex-direction: column; gap: 12px; flex: 1; }
+
+    .deco-divider {
+      height: 6px;
+      background: repeating-linear-gradient(90deg, var(--old-rose) 0 18px, var(--soft-blush) 18px 28px, var(--cool-steel) 28px 46px, transparent 46px 54px);
+      border-radius: 3px;
+      margin: 6px 0 4px;
+    }
+
+    .corner-flower {
+      position: absolute;
+      top: 8mm;
+      right: 8mm;
+      width: 42px;
+      opacity: 0.85;
+    }
+
+    .page-header .facet-num {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--old-rose);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Сетка сканов: жёсткая высота, чтобы страница никогда не переполнялась */
+    .diploma-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-auto-rows: 1fr;
+      gap: 10px;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .diploma-grid.two-up {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    .text-filler {
+      background: linear-gradient(135deg, rgba(255,219,218,0.7), rgba(213,197,200,0.5));
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--old-rose);
+      border-radius: 10px;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .text-filler .tf-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.15;
+    }
+
+    .text-filler p {
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--ink);
+    }
+
+    .diploma-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .diploma-item .scan-wrap {
+      flex: 1;
+      min-height: 0;
+      background: #ffffff;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .diploma-item .scan-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #ffffff;
+    }
+
+    .diploma-item .info {
+      padding: 10px 12px;
+      background: #fff;
+      border-top: 3px solid var(--old-rose);
+    }
+
+    .diploma-item .info .d-name {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .diploma-item .info .d-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-republic { background: #FFF0F0; color: #9B2226; border: 1px solid #DB7F8E; }
+    .badge-international { background: #FFF5F0; color: #6B3A2A; border: 1px solid #C4956A; }
+    .badge-city { background: #F0F4FF; color: #2D5FA0; border: 1px solid #93C5FD; }
+    .badge-university { background: #F5F0FF; color: #5B21B6; border: 1px solid #A78BFA; }
+
+    .rank {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      background: var(--soft-blush);
+      color: var(--navy);
+    }
+
+    /* PAGE 5: CONTACTS */
+    .page-contacts {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+    }
+
+    .page-contacts h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .qr-row {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .qr-item {
+      text-align: center;
+    }
+
+    .qr-item img {
+      width: 80px;
+      height: 80px;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      padding: 4px;
+      background: #fff;
+    }
+
+    .qr-item .qr-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-top: 6px;
+    }
+
+    .stats-mini {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+      width: 100%;
+      max-width: 160mm;
+    }
+
+    .stat-mini {
+      background: rgba(219, 127, 142, 0.08);
+      border-radius: 8px;
+      padding: 10px 8px;
+      text-align: center;
+    }
+
+    .stat-mini .num {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--old-rose);
+    }
+
+    .stat-mini .label {
+      font-size: 0.62rem;
+      color: var(--muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-top: 2px;
+    }
+
+    .footer-note {
+      font-size: 0.68rem;
+      color: var(--muted);
+      margin-top: auto;
+      text-align: center;
+    }
+
+    /* Palette strip at page bottom */
+    .a4-page::before {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 10px;
+      background: linear-gradient(90deg, #DB7F8E 0 25%, #FFDBDA 25% 50%, #D5C5C8 50% 75%, #9DA3A4 75% 100%);
+    }
+
+    /* Page number */
+    .page-number {
+      position: absolute;
+      bottom: 8mm;
+      right: 16mm;
+      font-size: 0.7rem;
+      color: var(--cool-steel);
+      font-weight: 600;
     }
   </style>
 </head>
 <body>
 
+  <!-- TOOLBAR (screen only) -->
   <div class="toolbar">
-    <div>
-      <strong>Печатный буклет-досье А4 (2 полосы / двусторонний разворот для жюри)</strong>
-      <div style="font-size:0.8rem; color:#9DA3A4;">Готов к печати на цветном принтере или сохранению в PDF (масштаб 100%, формат А4)</div>
-    </div>
+    <div style="font-weight:700; font-size:0.9rem;">📄 Портфолио «Лидер года» — Барабан А.В.</div>
     <div class="toolbar-actions">
-      <a href="index.html" class="btn-back">← Назад к цифровому лендингу</a>
       <button class="btn-print" onclick="window.print()">🖨️ Печать / Сохранить PDF</button>
     </div>
+    <div style="font-size:0.75rem; color:#9DA3A4;">10 страниц • Масштаб 100% • Формат А4</div>
   </div>
 
-  <!-- ===================== PAGE 1: FRONT DOSSIER ===================== -->
-  <section class="a4-page">
-    <div class="top-accent-bar"></div>
-
-    <header class="doc-header">
-      <div class="uni-name">УО «Гродненский государственный университет имени Янки Купалы» • Факультет экономики и управления</div>
-      <div class="contest-badge">Конкурс «Лидер года» • Портфолио участника</div>
-    </header>
-
-    <div class="hero-dossier">
-      <div class="portrait-frame">
-        <img src="assets/photos/vdohnovenie_kochanova_award_duo.jpg" alt="Александра Барабан и Н. И. Кочанова" />
-        <div class="portrait-caption">
-          Награждение дипломом Председателем Совета Республики НС РБ Н. И. Кочановой
-        </div>
+  <!-- ==================== PAGE 1: TITLE (стиль референса) ==================== -->
+  <div class="a4-page pg-title-page">
+    <div class="title-hero">
+      <div class="hero-script">
+        <span class="hs-hi">Hi, I'm</span>
+        <span class="hs-name">Александра</span>
       </div>
-
-      <div class="dossier-info">
-        <div>
-          <h1 class="candidate-name">БАРАБАН АЛЕКСАНДРА ВИТАЛЬЕВНА</h1>
-          <div class="candidate-tagline">«Время действовать: синтез интеллекта, слова, инноваций и национальной культуры»</div>
-        </div>
-
-        <div class="bio-grid">
-          <div class="bio-item">
-            <div class="bio-label">Образование и успеваемость</div>
-            <div class="bio-val">ФЭУ ГрГУ им. Я. Купалы, 3 курс, спец. «Электронная экономика» (средний балл 8.0+)</div>
-          </div>
-          <div class="bio-item gold-left">
-            <div class="bio-label">Профессиональная деятельность в ВУЗе</div>
-            <div class="bio-val">Делопроизводитель &amp; SMM-специалист сектора инновационных проектов и стартапов ГрГУ</div>
-          </div>
-          <div class="bio-item">
-            <div class="bio-label">Главные титулы</div>
-            <div class="bio-val">Первая Вице-Мисс «Гродненчанка-2025» • 3 место и «Выдающийся интеллект» («Студент года»)</div>
-          </div>
-          <div class="bio-item gold-left">
-            <div class="bio-label">Республиканский и международный уровень</div>
-            <div class="bio-val">Диплом Совета Республики НС РБ • I место «АРТ-вакацыі» Минобразования • Форум в Бресте</div>
-          </div>
-        </div>
-
-        <div class="credo-box">
-          <strong>Профиль лидера нового поколения:</strong> экономист-аналитик и разработчик IT-стартапов, сочетающая работу в секторе инновационных проектов и стартапов университета с победами в парламентских дебатах, конкурсах ораторского мастерства, интеллектуальных турнирах и республиканских музыкальных фестивалях в составе ансамбля скрипачей «Виола».
-        </div>
-      </div>
+      <div class="hero-role">Барабан Александра Витальевна</div>
     </div>
 
-    <div class="section-bar">
-      <span class="section-bar-title">Матрица лидерства: 4 ключевых вектора достижений</span>
-      <span class="section-bar-sub">14 подтвержденных дипломов и побед (2024–2026)</span>
+    <div class="cutout-stage">
+      <img class="cutout-photo" src="assets/photos/cutout_alexandra_crop.png" alt="Александра Барабан" />
     </div>
 
-    <div class="pillars-grid">
-      <div class="pillar-card">
-        <div class="pillar-head">
-          <span class="pillar-title">1. Лидерство, Ораторство и Дебаты</span>
-          <span class="pillar-badge">5 наград</span>
-        </div>
-        <ul class="pillar-list">
-          <li><strong>Первая Вице-Мисс</strong> городского конкурса <strong>«Гродненчанка – 2025»</strong> (ОО «Белорусский союз женщин»).</li>
-          <li><strong>Диплом за III место</strong> в финале университетского конкурса <strong>«Студент года – 2025»</strong> («Время действовать»).</li>
-          <li><strong>Диплом II степени</strong> + спецноминация <strong>«За оригинальность подачи материала»</strong> конкурса ораторского мастерства <strong>«Цицероний – 2025»</strong>.</li>
-          <li><strong>Диплом II степени</strong> финала <strong>Дебатного турнира ГрГУ им. Янки Купалы</strong>.</li>
-        </ul>
-      </div>
-
-      <div class="pillar-card">
-        <div class="pillar-head">
-          <span class="pillar-title">2. Интеллект, Стартапы, ПВТ и Наука</span>
-          <span class="pillar-badge">Инновации</span>
-        </div>
-        <ul class="pillar-list">
-          <li>Победитель в номинации <strong>«Выдающийся интеллект»</strong> конкурса <strong>«Студент года – 2025»</strong> ГрГУ им. Янки Купалы.</li>
-          <li>Презентация проекта создания <strong>молодёжного стартап-инкубатора «СтартИнн» ГрГУ</strong> на <strong>Республиканском конкурсе молодёжных инициатив</strong> (БРСМ) + <strong>Диплом III степени «ИнНаСтарт»</strong> (номинация «IT-решение», проект <strong>«LibList»</strong>) + спикер <strong>Хакатона 2026 (Case #1)</strong>.</li>
-          <li>Работа в медиакоманде <strong>STUFF СММ «Space CorpAcc with МТС &amp; Hi-Tech Park Belarus»</strong> и участие в <strong>StartUp Space (Space_Day)</strong>.</li>
-          <li><strong>Диплом «Гражданские инициативы»</strong> XIX Международного научного форума в Бресте (БрГТУ) + победы в 3 интеллектуальных турнирах («Законы семьи», «История земли моей» с командой «4G», «Смузи Квиз»).</li>
-        </ul>
-      </div>
-
-      <div class="pillar-card">
-        <div class="pillar-head">
-          <span class="pillar-title">3. Музыка, Поэзия и Культурный код</span>
-          <span class="pillar-badge">Республика</span>
-        </div>
-        <ul class="pillar-list">
-          <li><strong>Диплом Совета Республики НС РБ</strong> (подпись Председателя Н. И. Кочановой) в республиканском конкурсе <strong>«Вдохновение для души»</strong> к Году белорусской женщины.</li>
-          <li><strong>Два Диплома I степени</strong> (областной этап и <strong>республиканский финал «АРТ-вакацыі – 2026»</strong> Минобразования РБ) в составе ансамбля скрипачей <strong>«Виола»</strong>.</li>
-          <li>Сертификат 7 форматов творческой гостиной <strong>«Беларусь – перекресток национальных культур»</strong>. Игра на скрипке и акустической гитаре.</li>
-        </ul>
-      </div>
-
-      <div class="pillar-card">
-        <div class="pillar-head">
-          <span class="pillar-title">4. Гражданская позиция и Волонтёрство</span>
-          <span class="pillar-badge">Амбассадор</span>
-        </div>
-        <ul class="pillar-list">
-          <li>Участница визита делегации в <strong>Военную академию Республики Беларусь</strong> в рамках меморандума о сотрудничестве.</li>
-          <li>Лицо республиканской акции молодых избирателей <strong>«Мой голос первый!»</strong> и профориентационный спикер ФЭУ ГрГУ в школах.</li>
-          <li><strong>Добровольчество по зову сердца:</strong> регулярные поездки в приют для бездомных животных (выгул и социализация собак).</li>
-        </ul>
-      </div>
+    <div class="annot a1">
+      <span class="ann-big">21 · Студентка</span>
+      <span class="ann-small">3 курс «Электронная экономика», ФЭУ</span>
     </div>
+    <div class="annot a2">
+      <span class="ann-big">Лидер</span>
+      <span class="ann-small">«Гродненчанка» — 1 место<br/>«Студент года» — III место</span>
+    </div>
+    <div class="annot a3">
+      <span class="ann-big">SMM</span>
+      <span class="ann-small">«СтартИнн», «ИнНаСтарт»,<br/>«LibList»</span>
+    </div>
+    <svg class="swirls" viewBox="0 0 800 1100" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M170 260 C 110 230, 80 300, 130 320 S 190 340, 175 370" fill="none" stroke="#FFDBDA" stroke-width="3" stroke-linecap="round"/>
+      <path d="M600 470 C 640 420, 690 470, 650 500 S 620 520, 660 560" fill="none" stroke="#FFDBDA" stroke-width="3" stroke-linecap="round"/>
+      <path d="M120 780 C 180 760, 230 820, 190 850" fill="none" stroke="#D5C5C8" stroke-width="3" stroke-linecap="round"/>
+      <path d="M690 880 C 640 860, 610 920, 660 940" fill="none" stroke="#D5C5C8" stroke-width="3" stroke-linecap="round"/>
+    </svg>
 
-    <div class="culture-highlight">
+    <div class="title-quote">«Люди, которые ищут причины, почему у них не получится — всегда найдут их. А те, кто ищет возможности — всегда найдут путь»</div>
+    <div class="page-number">1 / 10</div>
+  </div>
+  <!-- ==================== PAGE 2: ГРАНЬ 1 ==================== -->
+  <div class="a4-page pg-2">
+    <svg class="bg-art" viewBox="0 0 800 1100" preserveAspectRatio="none" aria-hidden="true"><defs>
+  <radialGradient id="ballPink" cx="35%" cy="30%" r="70%">
+    <stop offset="0%" stop-color="#FFDBDA" stop-opacity="0.95"/>
+    <stop offset="45%" stop-color="#DB7F8E" stop-opacity="0.85"/>
+    <stop offset="100%" stop-color="#604D53" stop-opacity="0.55"/>
+  </radialGradient>
+  <radialGradient id="ballSlate" cx="35%" cy="30%" r="70%">
+    <stop offset="0%" stop-color="#FFDBDA" stop-opacity="0.9"/>
+    <stop offset="50%" stop-color="#D5C5C8" stop-opacity="0.8"/>
+    <stop offset="100%" stop-color="#9DA3A4" stop-opacity="0.5"/>
+  </radialGradient>
+  <radialGradient id="ballSteel" cx="35%" cy="30%" r="70%">
+    <stop offset="0%" stop-color="#D5C5C8" stop-opacity="0.85"/>
+    <stop offset="60%" stop-color="#9DA3A4" stop-opacity="0.7"/>
+    <stop offset="100%" stop-color="#604D53" stop-opacity="0.5"/>
+  </radialGradient>
+</defs><circle cx="700" cy="900" r="260" fill="url(#ballPink)"/><circle cx="170" cy="320" r="150" fill="url(#ballSlate)"/><circle cx="80" cy="980" r="90" fill="url(#ballSteel)" opacity="0.6"/></svg>
+    <img class="corner-flower" src="assets/photos/flower_icon.png" alt="" />
+    <div class="page-header">
+      <span class="emoji">👑</span>
       <div>
-        <div style="font-size:7.2pt; font-weight:800; text-transform:uppercase; color:#b45309; letter-spacing:0.06em;">
-          Культурный акцент • Республиканский конкурс Совета Республики НС РБ «Вдохновение для души»
+        <div class="facet-num">Грань 1 из 5</div>
+        <h2>Лидерство, медийность и общественное признание</h2>
+      </div>
+    </div>
+    <div class="diploma-grid two-up">
+      <div class="diploma-item">
+        <div class="scan-wrap"><img src="assets/diplomas/diploma_grodnenchanka_vicemiss.jpg" alt="Гродненчанка Вице-Мисс" /></div>
+        <div class="info">
+          <div class="d-name">Городской конкурс «Гродненчанка – 2025»</div>
+          <div class="d-meta"><span class="badge badge-city">Городской</span><span class="rank">Первая Вице-Мисс</span></div>
         </div>
-        <div class="poem-quote">
-          «Дарагі! Не хаваю тугі: невясёлы мой лёс, невясёлы... І плылі васількі, і танулі вянкі, а мой сіні вянок плыў удаль паміж хваль, покуль вочы глядзелі...» — Аркадзь Куляшоў («Ліст з палону», 1942)
+      </div>
+      <div class="diploma-item">
+        <div class="scan-wrap"><img src="assets/diplomas/diploma_student_year_3rd.jpg" alt="Студент года 3 место" /></div>
+        <div class="info">
+          <div class="d-name">«Студент года – 2025» (ГрГУ им. Я. Купалы)</div>
+          <div class="d-meta"><span class="badge badge-university">Университетский</span><span class="rank">III место</span></div>
         </div>
       </div>
-      <div style="font-size:7.4pt; color:#78350f; line-height:1.3;">
-        Поэтический номер Александры Барабан отмечен дипломом за подписью Председателя Совета Республики <strong>Н. И. Кочановой</strong>, а образ василькового венка стал символом её инструментальных выступлений со скрипкой и гитарой.
+      <div class="diploma-item">
+        <div class="scan-wrap"><img src="assets/diplomas/diploma_student_year_intellect.jpg" alt="Студент года Интеллект" /></div>
+        <div class="info">
+          <div class="d-name">«Студент года – 2025» — номинация «Выдающийся интеллект»</div>
+          <div class="d-meta"><span class="badge badge-university">Университетский</span><span class="rank">Победитель</span></div>
+        </div>
+      </div>
+      <div class="text-filler">
+        <div class="tf-title">Почему это важно</div>
+        <p>Городская и университетская победы подтверждают публичное признание: Александру выбирают как представителя молодёжи — на сцене, в интервью и в решениях жюри.</p>
       </div>
     </div>
+    <div class="page-number">2 / 10</div>
+  </div>
 
-    <div class="photo-row-4">
-      <div class="mini-photo-card">
-        <img src="assets/photos/student_year_roses_portrait.jpg" alt="Студент года" />
-        <span>«Студент года»: 3 место + Интеллект</span>
+    <!-- ==================== PHOTO PAGE: Публичные выступления ==================== -->
+  <div class="a4-page pg-4">
+    <img class="corner-flower" src="assets/photos/flower_icon.png" alt="" />
+    <div class="photo-page-wrap">
+      <div class="photo-page-head">
+        <div class="facet-num">Фотохроника</div>
+        <h2>Публичные выступления</h2>
       </div>
-      <div class="mini-photo-card">
-        <img src="assets/photos/grodnenchanka_violin_stage.jpg" alt="Скрипка Гродненчанка" />
-        <span>Первая Вице-Мисс «Гродненчанка»</span>
-      </div>
-      <div class="mini-photo-card">
-        <img src="assets/photos/hackathon_case1_screen.jpg" alt="Хакатон 2026" />
-        <span>Спикер Хакатона &amp; Стартап «LibList»</span>
-      </div>
-      <div class="mini-photo-card">
-        <img src="assets/photos/military_academy_trio_armor.jpg" alt="Военная академия РБ" />
-        <span>Визит в Военную академию РБ</span>
+      <div class="photo-grid">
+        <figure class="ph-tile"><img src="assets/photos/grodnenchanka_stage_speech.jpg" alt="Выступление на конкурсе «Гродненчанка»" /><figcaption>Выступление на конкурсе «Гродненчанка»</figcaption></figure>
+        <figure class="ph-tile"><img src="assets/photos/innastart_liblist_team_award.jpg" alt="Награждение команды ИнНаСтарт" /><figcaption>Награждение команды «ИнНаСтарт»</figcaption></figure>
+        <figure class="ph-tile"><img src="assets/photos/ciceroniy_portrait.jpg" alt="Конкурс «Цицероний»" /><figcaption>Конкурс ораторского мастерства «Цицероний»</figcaption></figure>
+        <figure class="ph-tile"><img src="assets/photos/grodnenchanka_guitar_stage.jpg" alt="Гитара на сцене" /><figcaption>Гитара на сцене</figcaption></figure>
       </div>
     </div>
-
-    <footer class="page-footer">
-      <span>Портфолио на конкурс «Лидер года» • Барабан Александра Витальевна (ГрГУ им. Янки Купалы, ФЭУ)</span>
-      <span>Страница 1 из 2</span>
-    </footer>
-  </section>
-
-  <!-- ===================== PAGE 2: BACK VERIFIED CHRONICLE ===================== -->
-  <section class="a4-page">
-    <div class="top-accent-bar"></div>
-
-    <header class="doc-header">
-      <div class="uni-name">Хронологический реестр дипломов, проектов и общественных инициатив (2024–2026)</div>
-      <div class="contest-badge">Верифицированное досье • Стр. 2</div>
-    </header>
-
-    <table class="awards-table">
-      <thead>
-        <tr>
-          <th style="width:13%;">Дата</th>
-          <th style="width:16%;">Уровень</th>
-          <th style="width:34%;">Мероприятие / Конкурс / Форум</th>
-          <th style="width:37%;">Награда / Статус / Роль Александры Барабан</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>2026</strong></td>
-          <td><span class="lvl-tag lvl-rep">Республиканский</span></td>
-          <td>Республиканский фестиваль художественного творчества молодёжи <strong>«АРТ-вакацыі»</strong> (Минобразования РБ)</td>
-          <td><strong>Диплом I степени</strong> в номинации «Инструментальный жанр» в составе ансамбля скрипачей «Виола» ГрГУ (подпись Министра образования А. И. Иванца).</td>
-        </tr>
-        <tr>
-          <td><strong>2025–2026</strong></td>
-          <td><span class="lvl-tag lvl-rep">Республиканский</span></td>
-          <td>Республиканский творческий конкурс <strong>«Вдохновение для души»</strong> (Год белорусской женщины)</td>
-          <td><strong>Диплом Совета Республики НС РБ</strong> (вручен лично Председателем Совета Республики Н. И. Кочановой) за номер по поэзии А. Кулешова «Дарагі! Не хаваю тугі».</td>
-        </tr>
-        <tr>
-          <td><strong>29.05.2026</strong></td>
-          <td><span class="lvl-tag lvl-uni">Стартап-конкурс</span></td>
-          <td>XVI Открытый конкурс студенческих бизнес-идей инновационных стартапов <strong>«ИнНаСтарт»</strong> (ГрГУ)</td>
-          <td><strong>Диплом III степени</strong> в номинации <strong>«IT-решение»</strong> (соавтор проекта <strong>«LibList» — книжная социальная сеть</strong>).</td>
-        </tr>
-        <tr>
-          <td><strong>13.05.2026</strong></td>
-          <td><span class="lvl-tag lvl-uni">Университетский</span></td>
-          <td>Интеллектуальная игра <strong>«Законы семьи»</strong> в рамках Недели семьи в ГрГУ им. Янки Купалы</td>
-          <td><strong>Диплом за I место</strong> (командная победа: А. Барабан, М. Гурин, А. Белявская).</td>
-        </tr>
-        <tr>
-          <td><strong>2026</strong></td>
-          <td><span class="lvl-tag lvl-cit">Областной этап</span></td>
-          <td>Областной этап республиканского фестиваля <strong>«АРТ-вакацыі – 2026»</strong> (г. Гродно)</td>
-          <td><strong>Диплом I степени</strong> в номинации «Инструментальное творчество» (ансамбль скрипачей «Виола» ГрГУ им. Янки Купалы).</td>
-        </tr>
-        <tr>
-          <td><strong>2026</strong></td>
-          <td><span class="lvl-tag lvl-rep">Республиканский</span></td>
-          <td>Республиканский конкурс молодёжных инициатив (БРСМ) &amp; Экосистема <strong>StartUp Space × ПВТ × МТС</strong></td>
-          <td>Защита проекта создания <strong>молодёжного стартап-инкубатора «СтартИнн» ГрГУ</strong>; работа в команде <strong>STUFF СММ «Space CorpAcc with МТС &amp; Hi-Tech Park Belarus»</strong>.</td>
-        </tr>
-        <tr>
-          <td><strong>2026</strong></td>
-          <td><span class="lvl-tag lvl-uni">Кейс-чемпионат</span></td>
-          <td>Университетский <strong>Хакатон – 2026</strong> (при поддержке ОАО «Белагропромбанк»)</td>
-          <td>Разработка и публичный питчинг <strong>Case #1</strong> (тандем: Александра Барабан, Анна Белявская).</td>
-        </tr>
-        <tr>
-          <td><strong>18–19.12.2025</strong></td>
-          <td><span class="lvl-tag lvl-int">Международный</span></td>
-          <td>XIX Международный студенческий научный форум <strong>«Студенческая научная зима в Бресте – 2025»</strong> (БрГТУ)</td>
-          <td><strong>Диплом в номинации «Гражданские инициативы»</strong> по итогам конкурса идей и предложений «Мой вклад в устойчивое будущее».</td>
-        </tr>
-        <tr>
-          <td><strong>29.10.2025</strong></td>
-          <td><span class="lvl-tag lvl-uni">Университетский</span></td>
-          <td>Университетский конкурс <strong>«Студент года – 2025»</strong> («Время действовать», ГрГУ им. Я. Купалы)</td>
-          <td>Двойная награда: <strong>1) Диплом за III место</strong>; <strong>2) Победа в номинации «Выдающийся интеллект»</strong>.</td>
-        </tr>
-        <tr>
-          <td><strong>2025</strong></td>
-          <td><span class="lvl-tag lvl-cit">Городской</span></td>
-          <td>Городской конкурс <strong>«Гродненчанка – 2025»</strong> (ОО «Белорусский союз женщин», г. Гродно)</td>
-          <td><strong>Диплом победителя в номинации «ПЕРВАЯ ВИЦЕ-МИСС»</strong> (интервью ТРК «Беларусь 4», номера со скрипкой и гитарой).</td>
-        </tr>
-        <tr>
-          <td><strong>18.09.2025</strong></td>
-          <td><span class="lvl-tag lvl-uni">Университетский</span></td>
-          <td>Историческая викторина <strong>«История земли моей»</strong> ко Дню народного единства (ГрГУ им. Я. Купалы)</td>
-          <td><strong>I место (победитель викторины)</strong> в составе команды <strong>«4G»</strong> Факультета экономики и управления (3 тура по истории Беларуси и Гродно).</td>
-        </tr>
-        <tr>
-          <td><strong>2025–2026</strong></td>
-          <td><span class="lvl-tag lvl-uni">Университетский</span></td>
-          <td>Финал <strong>Дебатного турнира ГрГУ имени Янки Купалы</strong></td>
-          <td><strong>Диплом II степени</strong> финала университетского турнира парламентских дебатов.</td>
-        </tr>
-        <tr>
-          <td><strong>25.04.2025</strong></td>
-          <td><span class="lvl-tag lvl-uni">Университетский</span></td>
-          <td>Конкурс ораторского мастерства <strong>«Цицероний – 2025»</strong> (ГрГУ им. Янки Купалы)</td>
-          <td>Двойная награда: <strong>1) Диплом II степени</strong>; <strong>2) Диплом «За оригинальность подачи материала»</strong>.</td>
-        </tr>
-        <tr>
-          <td><strong>29.11.2024</strong></td>
-          <td><span class="lvl-tag lvl-uni">Межкультурный</span></td>
-          <td>Творческая гостиная <strong>«Беларусь – перекресток национальных культур»</strong> (ГрГУ им. Я. Купалы)</td>
-          <td><strong>Сертификат участника 7 форматов:</strong> круглый стол, «Брейн-ринг», «Межкультурные табу», конкурсы чтецов, видеороликов, эссе и гала-концерт.</td>
-        </tr>
-        <tr>
-          <td><strong>21.11.2024</strong></td>
-          <td><span class="lvl-tag lvl-cit">Городской</span></td>
-          <td>Интеллектуально-музыкальная игра <strong>«Смузи Квиз»</strong> (г. Гродно)</td>
-          <td><strong>Диплом за II место</strong> в составе команды <strong>«Шутка Фейербаха»</strong>.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="section-bar">
-      <span class="section-bar-title">Подлинные дипломы из конкурсного портфолио (ключевые сканы)</span>
-      <span class="section-bar-sub">Полная интерактивная галерея всех 14 сканов доступна на веб-лендинге</span>
-    </div>
-
-    <div class="diploma-mini-grid">
-      <div class="diploma-mini">
-        <img src="assets/diplomas/diploma_vdohnovenie_kochanova.jpg" alt="Совет Республики" />
-        <div>Совет Республики НС РБ «Вдохновение для души»</div>
-      </div>
-      <div class="diploma-mini">
-        <img src="assets/diplomas/diploma_viola_republic_1st.jpg" alt="АРТ-вакацыі I степень" />
-        <div>I степень Респ. финал «АРТ-вакацыі»</div>
-      </div>
-      <div class="diploma-mini">
-        <img src="assets/diplomas/diploma_grodnenchanka_vicemiss.jpg" alt="Гродненчанка" />
-        <div>Первая Вице-Мисс «Гродненчанка-2025»</div>
-      </div>
-      <div class="diploma-mini">
-        <img src="assets/diplomas/diploma_student_year_intellect.jpg" alt="Выдающийся интеллект" />
-        <div>«Студент года»: Выдающийся интеллект</div>
-      </div>
-      <div class="diploma-mini">
-        <img src="assets/diplomas/diploma_innastart_liblist_3rd.jpg" alt="ИнНаСтарт LibList" />
-        <div>III степень «ИнНаСтарт» IT-проект «LibList»</div>
-      </div>
-      <div class="diploma-mini">
-        <img src="assets/diplomas/diploma_ciceroniy_2nd.jpg" alt="Цицероний II степень" />
-        <div>II степень + Спецприз «Цицероний-2025»</div>
-      </div>
-    </div>
-
-    <div class="photo-row-4">
-      <div class="mini-photo-card">
-        <img src="assets/photos/debates_2nd_place_award.jpg" alt="Дебаты II степень" />
-        <span>II степень Дебатного турнира ГрГУ</span>
-      </div>
-      <div class="mini-photo-card">
-        <img src="assets/photos/startinn_pitch_title.jpg" alt="Питч СтартИнн" />
-        <span>Питч стартап-инкубатора «СтартИнн»</span>
-      </div>
-      <div class="mini-photo-card">
-        <img src="assets/photos/space_corpacc_smm_canon.jpg" alt="STUFF CMM Space MTC" />
-        <span>STUFF СММ: Space CorpAcc × МТС × ПВТ</span>
-      </div>
-      <div class="mini-photo-card">
-        <img src="assets/photos/civic_first_vote_tshirt.jpg" alt="Мой голос первый" />
-        <span>Гражданская акция «Мой голос первый!»</span>
-      </div>
-    </div>
-
-    <div class="qr-bridge">
+    <div class="page-number">3 / 10</div>
+  </div>
+  <!-- ==================== PAGE 3: ГРАНЬ 2 ==================== -->
+  <div class="a4-page pg-3">
+    <svg class="bg-art" viewBox="0 0 800 1100" preserveAspectRatio="none" aria-hidden="true"><defs>
+  <radialGradient id="ballPink" cx="35%" cy="30%" r="70%">
+    <stop offset="0%" stop-color="#FFDBDA" stop-opacity="0.95"/>
+    <stop offset="45%" stop-color="#DB7F8E" stop-opacity="0.85"/>
+    <stop offset="100%" stop-color="#604D53" stop-opacity="0.55"/>
+  </radialGradient>
+  <radialGradient id="ballSlate" cx="35%" cy="30%" r="70%">
+    <stop offset="0%" stop-color="#FFDBDA" stop-opacity="0.9"/>
+    <stop offset="50%" stop-color="#D5C5C8" stop-opacity="0.8"/>
+    <stop offset="100%" stop-color="#9DA3A4" stop-opacity="0.5"/>
+  </radialGradient>
+  <radialGradient id="ballSteel" cx="35%" cy="30%" r="70%">
+    <stop offset="0%" stop-color="#D5C5C8" stop-opacity="0.85"/>
+    <stop offset="60%" stop-color="#9DA3A4" stop-opacity="0.7"/>
+    <stop offset="100%" stop-color="#604D53" stop-opacity="0.5"/>
+  </radialGradient>
+</defs><circle cx="120" cy="980" r="230" fill="url(#ballSlate)"/><circle cx="720" cy="200" r="130" fill="url(#ballPink)"/><circle cx="600" cy="700" r="70" fill="url(#ballSteel)" opacity="0.6"/></svg>
+    <img class="corner-flower" src="assets/photos/flower_icon.png" alt="" />
+    <div class="page-header">
+      <span class="emoji">🧠</span>
       <div>
-        <div style="font-size:10pt; font-weight:800; color:#DB7F8E; margin-bottom:2px;">
-          ЦИФРОВОЕ ПРОДОЛЖЕНИЕ ПОРТФОЛИО (DIGITAL LANDING &amp; VIDEO)
-        </div>
-        <div style="font-size:7.6pt; color:#D5C5C8; line-height:1.32;">
-          Наведите камеру смартфона на QR-коды справа, чтобы связаться с Александрой в Telegram (<strong>@alexwzzw</strong>) или посмотреть видеозапись её творческого выступления со скрипкой и гитарой на конкурсе «Гродненчанка – 2025».
+        <div class="facet-num">Грань 2 из 5</div>
+        <h2>Интеллект, IT-стартапы и наука</h2>
+      </div>
+    </div>
+    <div class="diploma-grid two-up">
+      <div class="diploma-item">
+        <div class="scan-wrap"><img src="assets/diplomas/diploma_innastart_liblist_3rd.jpg" alt="ИнНаСтарт LibList" /></div>
+        <div class="info">
+          <div class="d-name">XVI «ИнНаСтарт» — IT-решение «LibList»</div>
+          <div class="d-meta"><span class="badge badge-republic">Республиканский</span><span class="rank">III степень</span></div>
         </div>
       </div>
-
-      <div class="qr-card">
-        <img src="assets/qr_telegram.png" alt="QR Telegram @alexwzzw" />
-        <div class="qr-card-text">
-          <strong>Telegram</strong><br/>
-          @alexwzzw<br/>
-          Прямая связь
+      <div class="diploma-item">
+        <div class="scan-wrap"><img src="assets/diplomas/diploma_zakony_semyi_1st.jpg" alt="Законы семьи" /></div>
+        <div class="info">
+          <div class="d-name">Игра «Законы семьи» («Неделя семьи» ГрГУ)</div>
+          <div class="d-meta"><span class="badge badge-university">Университетский</span><span class="rank">I место</span></div>
         </div>
       </div>
-
-      <div class="qr-card">
-        <img src="assets/qr_youtube.png" alt="QR YouTube Выступление" />
-        <div class="qr-card-text">
-          <strong>YouTube</strong><br/>
-          Видео номера<br/>
-          «Гродненчанка»
+      <div class="diploma-item">
+        <div class="scan-wrap"><img src="assets/diplomas/diploma_smuzi_quiz_2nd.jpg" alt="Смузи Квиз" /></div>
+        <div class="info">
+          <div class="d-name">«Смузи Квиз» (команда «Шутка Фейербаха»)</div>
+          <div class="d-meta"><span class="badge badge-city">Городской</span><span class="rank">II место</span></div>
+        </div>
+      </div>
+      <div class="diploma-item">
+        <div class="scan-wrap"><img src="assets/diplomas/diploma_brest_forum.jpg" alt="Брест Форум" /></div>
+        <div class="info">
+          <div class="d-name">XIX Междунар. научный форум «Студенческая научная зима в Бресте»</div>
+          <div class="d-meta"><span class="badge badge-international">Международный</span><span class="rank">Гражданские инициативы</span></div>
         </div>
       </div>
     </div>
+    <div class="page-number">4 / 10</div>
+  </div>
 
-    <footer class="page-footer">
-      <span>УО «Гродненский государственный университет имени Янки Купалы» • Сектор инновационных проектов и стартапов • ФЭУ</span>
-      <span>Страница 2 из 2</span>
-    </footer>
-  </section>
+    <!-- ==================== PHOTO PAGE: Стартапы в действии ==================== -->
+  <div class="a4-page pg-5">
+    <img class="corner-flower" src="assets/photos/flower_icon.png" alt="" />
+    <div class="photo-page-wrap">
+      <div class="photo-page-head">
+        <div class="facet-num">Фотохроника</div>
+        <h2>Стартапы в действии</h2>
+      </div>
+      <div class="photo-grid">
+        <figure class="ph-tile"><img src="assets/photos/hackathon_pitch_wide.jpg" alt="Питч на Хакатоне 2026" /><figcaption>Питч на Хакатоне 2026</figcaption></figure>
+        <figure class="ph-tile"><img src="assets/photos/hackathon_pitch_closeup.jpg" alt="Защита проекта" /><figcaption>Защита проекта</figcaption></figure>
+        <figure class="ph-tile"><img src="assets/photos/startinn_pitch_title.jpg" alt="Питч «СтартИнн»" /><figcaption>Питч «СтартИнн»</figcaption></figure>
+        <figure class="ph-tile"><img src="assets/photos/space_corpacc_smm_editing.jpg" alt="SMM-работа в команде" /><figcaption>SMM-работа в команде</figcaption></figure>
+      </div>
+    </div>
+    <div class="page-number">5 / 10</div>
+  </div>
+  <!-- ==================== PAGE 4: ГРАНЬ 3 ==================== -->
+  <div class="a4-page pg-4">
+    <svg class="bg-art" viewBox="0 0 800 1100" preserveAspectRatio="none" aria-hidden="true"><defs>
+  <radialGradient id="ballPink" cx="35%" cy="30%" r="70%">
+    <stop offset="0%" stop-color="#FFDBDA" stop-opacity="0.95"/>
+    <stop offset="45%" stop-color="#DB7F8E" stop-opacity="0.85"/>
+    <stop offset="100%" stop-color="#604D53" stop-opacity="0.55"/>
+  </radialGradient>
+  <radialGradient id="ballSlate" cx="35%" cy="30%" r="70%">
+    <stop offset="0%" stop-color="#FFDBDA" stop-opacity="0.9"/>
+    <stop offset="50%" stop-color="#D5C5C8" stop-opacity="0.8"/>
+    <stop offset="100%" stop-color="#9DA3A4" stop-opacity="0.5"/>
+  </radialGradient>
+  <radialGradient id="ballSteel" cx="35%" cy="30%" r="70%">
+    <stop offset="0%" stop-color="#D5C5C8" stop-opacity="0.85"/>
+    <stop offset="60%" stop-color="#9DA3A4" stop-opacity="0.7"/>
+    <stop offset="100%" stop-color="#604D53" stop-opacity="0.5"/>
+  </radialGradient>
+</defs><circle cx="700" cy="220" r="240" fill="url(#ballPink)"/><circle cx="90" cy="860" r="170" fill="url(#ballSteel)"/><circle cx="380" cy="1000" r="100" fill="url(#ballSlate)"/></svg>
+    <img class="corner-flower" src="assets/photos/flower_icon.png" alt="" />
+    <div class="page-header">
+      <span class="emoji">🎙️</span>
+      <div>
+        <div class="facet-num">Грань 3 из 5</div>
+        <h2>Ораторское мастерство и парламентские дебаты</h2>
+      </div>
+    </div>
+    <div class="diploma-grid two-up">
+      <div class="diploma-item">
+        <div class="scan-wrap"><img src="assets/diplomas/diploma_ciceroniy_2nd.jpg" alt="Цицероний II степень" /></div>
+        <div class="info">
+          <div class="d-name">Конкурс ораторского мастерства «Цицероний – 2025» (ГрГУ)</div>
+          <div class="d-meta"><span class="badge badge-university">Университетский</span><span class="rank">II степень</span></div>
+        </div>
+      </div>
+      <div class="diploma-item">
+        <div class="scan-wrap"><img src="assets/diplomas/diploma_ciceroniy_originality.jpg" alt="Цицероний Оригинальность" /></div>
+        <div class="info">
+          <div class="d-name">«Цицероний – 2025» — номинация «За оригинальность подачи материала»</div>
+          <div class="d-meta"><span class="badge badge-university">Университетский</span><span class="rank">Спецноминация</span></div>
+        </div>
+      </div>
+      <div class="diploma-item">
+        <div class="scan-wrap"><img src="assets/diplomas/diploma_debates_2nd_clean.jpg" alt="Финал дебатного турнира ГрГУ, II степень" /></div>
+        <div class="info">
+          <div class="d-name">Финал Дебатного турнира ГрГУ имени Янки Купалы (2025–2026)</div>
+          <div class="d-meta"><span class="badge badge-university">Университетский</span><span class="rank">II степень</span></div>
+        </div>
+      </div>
+      <div class="text-filler">
+        <div class="tf-title">Слово как инструмент</div>
+        <p>Две награды «Цицерона» и призовое место в дебатах — это умение аргументировать, защищать позицию и говорить так, чтобы услышали.</p>
+      </div>
+    </div>
+    <div class="page-number">6 / 10</div>
+  </div>
+
+    <!-- ==================== PHOTO PAGE: Слово и аргумент ==================== -->
+  <div class="a4-page pg-3">
+    <img class="corner-flower" src="assets/photos/flower_icon.png" alt="" />
+    <div class="photo-page-wrap">
+      <div class="photo-page-head">
+        <div class="facet-num">Фотохроника</div>
+        <h2>Слово и аргумент</h2>
+      </div>
+      <div class="photo-grid">
+        <figure class="ph-tile"><img src="assets/photos/debates_2nd_place_award.jpg" alt="Финал Дебатного турнира ГрГУ" /><figcaption>Финал Дебатного турнира ГрГУ</figcaption></figure>
+        <figure class="ph-tile"><img src="assets/photos/ciceroniy_portrait.jpg" alt="Конкурс «Цицероний»" /><figcaption>Конкурс «Цицероний»</figcaption></figure>
+        <figure class="ph-tile"><img src="assets/photos/brest_delegation_crop.jpg" alt="Студенческая научная зима в Бресте" /><figcaption>Студенческая научная зима в Бресте</figcaption></figure>
+        <figure class="ph-tile"><img src="assets/photos/history_quiz_4g_winner_news.jpg" alt="Победа команды «4G»" /><figcaption>Победа команды «4G»</figcaption></figure>
+      </div>
+    </div>
+    <div class="page-number">7 / 10</div>
+  </div>
+  <!-- ==================== PAGE 5: ГРАНЬ 4 ==================== -->
+  <div class="a4-page pg-5">
+    <svg class="bg-art" viewBox="0 0 800 1100" preserveAspectRatio="none" aria-hidden="true"><defs>
+  <radialGradient id="ballPink" cx="35%" cy="30%" r="70%">
+    <stop offset="0%" stop-color="#FFDBDA" stop-opacity="0.95"/>
+    <stop offset="45%" stop-color="#DB7F8E" stop-opacity="0.85"/>
+    <stop offset="100%" stop-color="#604D53" stop-opacity="0.55"/>
+  </radialGradient>
+  <radialGradient id="ballSlate" cx="35%" cy="30%" r="70%">
+    <stop offset="0%" stop-color="#FFDBDA" stop-opacity="0.9"/>
+    <stop offset="50%" stop-color="#D5C5C8" stop-opacity="0.8"/>
+    <stop offset="100%" stop-color="#9DA3A4" stop-opacity="0.5"/>
+  </radialGradient>
+  <radialGradient id="ballSteel" cx="35%" cy="30%" r="70%">
+    <stop offset="0%" stop-color="#D5C5C8" stop-opacity="0.85"/>
+    <stop offset="60%" stop-color="#9DA3A4" stop-opacity="0.7"/>
+    <stop offset="100%" stop-color="#604D53" stop-opacity="0.5"/>
+  </radialGradient>
+</defs><circle cx="140" cy="200" r="200" fill="url(#ballSlate)"/><circle cx="700" cy="960" r="250" fill="url(#ballPink)"/><circle cx="420" cy="560" r="80" fill="url(#ballSteel)" opacity="0.5"/></svg>
+    <img class="corner-flower" src="assets/photos/flower_icon.png" alt="" />
+    <div class="page-header">
+      <span class="emoji">🎻</span>
+      <div>
+        <div class="facet-num">Грань 4 из 5</div>
+        <h2>Высокая культура, скрипка, патриотизм и доброе сердце</h2>
+      </div>
+    </div>
+    <div class="diploma-grid two-up">
+      <div class="diploma-item">
+        <div class="scan-wrap"><img src="assets/diplomas/diploma_vdohnovenie_kochanova.jpg" alt="Вдохновение для души" /></div>
+        <div class="info">
+          <div class="d-name">Республиканский конкурс «Вдохновение для души» (Совет Республики НС РБ)</div>
+          <div class="d-meta"><span class="badge badge-republic">Республиканский</span><span class="rank">Диплом Совета Республики</span></div>
+        </div>
+      </div>
+      <div class="diploma-item">
+        <div class="scan-wrap"><img src="assets/diplomas/diploma_viola_republic_1st.jpg" alt="АРТ-вакацыі Республика" /></div>
+        <div class="info">
+          <div class="d-name">Республиканский фестиваль «АРТ-вакацыі – 2026» (Минобразования РБ) — ансамбль «Виола»</div>
+          <div class="d-meta"><span class="badge badge-republic">Республиканский финал</span><span class="rank">I степень</span></div>
+        </div>
+      </div>
+      <div class="diploma-item">
+        <div class="scan-wrap"><img src="assets/diplomas/diploma_viola_regional_1st.jpg" alt="АРТ-вакацыі Область" /></div>
+        <div class="info">
+          <div class="d-name">Областной этап «АРТ-вакацыі – 2026» (г. Гродно) — ансамбль «Виола»</div>
+          <div class="d-meta"><span class="badge badge-city">Областной</span><span class="rank">I степень</span></div>
+        </div>
+      </div>
+      <div class="diploma-item">
+        <div class="scan-wrap"><img src="assets/diplomas/diploma_belarus_crossroads.jpg" alt="Беларусь перекрёсток культур" /></div>
+        <div class="info">
+          <div class="d-name">Гостиная «Беларусь – перекресток национальных культур» (7 форматов)</div>
+          <div class="d-meta"><span class="badge badge-university">Университетский</span><span class="rank">Сертификат участника</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="page-number">8 / 10</div>
+  </div>
+    <!-- ==================== PHOTO PAGE: Музыка и культура ==================== -->
+  <div class="a4-page pg-2">
+    <img class="corner-flower" src="assets/photos/flower_icon.png" alt="" />
+    <div class="photo-page-wrap">
+      <div class="photo-page-head">
+        <div class="facet-num">Фотохроника</div>
+        <h2>Музыка и культура</h2>
+      </div>
+      <div class="photo-grid">
+        <figure class="ph-tile"><img src="assets/photos/viola_led_screen_stage.jpg" alt="Ансамбль «Виола»" /><figcaption>Ансамбль «Виола»</figcaption></figure>
+        <figure class="ph-tile"><img src="assets/photos/viola_pink_blouse_concert.jpg" alt="Концерт" /><figcaption>Концерт</figcaption></figure>
+        <figure class="ph-tile"><img src="assets/photos/vdohnovenie_minsk_portrait.jpg" alt="Минск, «Вдохновение для души»" /><figcaption>Минск, «Вдохновение для души»</figcaption></figure>
+        <figure class="ph-tile"><img src="assets/photos/violin_folk_costume_mirror.jpg" alt="Скрипка в народном костюме" /><figcaption>Скрипка в народном костюме</figcaption></figure>
+      </div>
+    </div>
+    <div class="page-number">9 / 10</div>
+  </div>
+  <!-- ==================== PAGE 5: КОНТАКТЫ И СТАТИСТИКА ==================== -->
+  <div class="a4-page pg-6">
+    <svg class="bg-art" viewBox="0 0 800 1100" preserveAspectRatio="none" aria-hidden="true"><defs>
+  <radialGradient id="ballPink" cx="35%" cy="30%" r="70%">
+    <stop offset="0%" stop-color="#FFDBDA" stop-opacity="0.95"/>
+    <stop offset="45%" stop-color="#DB7F8E" stop-opacity="0.85"/>
+    <stop offset="100%" stop-color="#604D53" stop-opacity="0.55"/>
+  </radialGradient>
+  <radialGradient id="ballSlate" cx="35%" cy="30%" r="70%">
+    <stop offset="0%" stop-color="#FFDBDA" stop-opacity="0.9"/>
+    <stop offset="50%" stop-color="#D5C5C8" stop-opacity="0.8"/>
+    <stop offset="100%" stop-color="#9DA3A4" stop-opacity="0.5"/>
+  </radialGradient>
+  <radialGradient id="ballSteel" cx="35%" cy="30%" r="70%">
+    <stop offset="0%" stop-color="#D5C5C8" stop-opacity="0.85"/>
+    <stop offset="60%" stop-color="#9DA3A4" stop-opacity="0.7"/>
+    <stop offset="100%" stop-color="#604D53" stop-opacity="0.5"/>
+  </radialGradient>
+</defs><circle cx="690" cy="170" r="230" fill="url(#ballPink)"/><circle cx="110" cy="960" r="250" fill="url(#ballSteel)"/><circle cx="500" cy="620" r="110" fill="url(#ballSlate)" opacity="0.6"/></svg>
+    <div class="page-contacts">
+      <h2>📬 Контакты и цифровое портфолио</h2>
+
+      <div class="qr-row">
+        <div class="qr-item">
+          <img src="assets/qr_telegram.png" alt="Telegram QR" />
+          <div class="qr-label">@alexwzzw</div>
+        </div>
+        <div class="qr-item">
+          <img src="assets/qr_youtube.png" alt="YouTube QR" />
+          <div class="qr-label">Выступление на «Гродненчанке»</div>
+        </div>
+      </div>
+
+      <div style="font-size:0.78rem; color:var(--muted); margin-top:8px;">
+        Telegram: <strong>t.me/alexwzzw</strong> &nbsp;|&nbsp; YouTube: <strong>youtu.be/bfQRvv3K-Ck</strong>
+      </div>
+
+      <div class="stats-mini">
+        <div class="stat-mini"><div class="num">13</div><div class="label">Дипломов</div></div>
+        <div class="stat-mini"><div class="num">50+</div><div class="label">Фотографий</div></div>
+        <div class="stat-mini"><div class="num">8</div><div class="label">Видео</div></div>
+        <div class="stat-mini"><div class="num">5</div><div class="label">Граней лидера</div></div>
+      </div>
+
+      <div style="margin-top:24px; padding:14px 20px; background:rgba(219,127,142,0.08); border-radius:10px; max-width:150mm;">
+        <div style="font-size:0.78rem; font-weight:700; color:var(--navy); margin-bottom:6px;">Интерактивный веб-лендинг</div>
+        <div style="font-size:0.7rem; color:var(--muted); line-height:1.45;">Полноразмерные сканы всех 14 дипломов, 50+ фотографий и 8 видеороликов доступны в интерактивном лендинге. Отсканируйте QR-код или перейдите по ссылке в Telegram.</div>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      Конкурсное портфолио «Лидер года» • УО «Гродненский государственный университет имени Янки Купалы» • Факультет экономики и управления<br/>
+      Барабан Александра Витальевна • 3 курс «Электронная экономика» • 2026
+    </div>
+    <div class="page-number">10 / 10</div>
+  </div>
 
 </body>
 </html>
